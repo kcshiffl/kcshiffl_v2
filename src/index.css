@@ -1,13 +1,43 @@
-body {
+@import "@font/nunito";
+
+html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Nunito";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #6FAFCA;
+  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#taskbar {
+  width: 100%;
+  height: 60px;
+  /* height: auto; */
+  flex-direction: row;
+  background-color: #1D8DBB;
+  border-top: 5px solid black;
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  right: 0;
+}
+
+.desktop-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.vertical-flex {
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 2px solid #000;
+  color: white;
+  width: auto;
+  display: inline-block;
 }
