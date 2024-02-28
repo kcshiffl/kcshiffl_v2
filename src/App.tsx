@@ -3,7 +3,7 @@ import './index.css';
 import CSS from 'csstype';
 import GridLines from 'react-gridlines';
 import DesktopIcon from './DesktopIcon.tsx';
-import girl from './images/girl.png'
+import AboutWindow from './AboutWindow.tsx';
 
 const horizontalStyle: CSS.Properties = {
   'display': 'flex',
@@ -12,7 +12,6 @@ const horizontalStyle: CSS.Properties = {
 }
 
 const gridArea: CSS.Properties = {
-
   'height': '100%',
 }
 
@@ -20,10 +19,13 @@ const gridArea: CSS.Properties = {
 export default function App() {
   return (
   <div>
-    <div className="vertical-flex"> 
-      <img className="desktop-icon" src={girl} />
-      <div> hi</div>
-      <div> hi</div>
+    <AboutWindow />
+    <div className="desktop-icons-vertical-flex"> 
+      < DesktopIcon iconName="About Me" />
+      < DesktopIcon iconName="Experience" />
+      < DesktopIcon iconName="Projects" />
+      < DesktopIcon iconName="Contact" />
+      < DesktopIcon iconName="Resume" />
     </div>
     <div id="taskbar" >
     </div>
