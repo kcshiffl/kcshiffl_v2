@@ -31,7 +31,7 @@ const AboutWindow = (props: AboutWindowProps) => {
 
     return (
         <div id="aboutWindow" className='windowBasic aboutWindow'>
-            <div className="windowHeader" style={{ backgroundColor: "#EBB436"}}>
+            <div className="windowHeader" >
                 <div style={{paddingLeft: '15px'}}>About Me</div>
                 <div style={{flexGrow: 1}} />
                 <div className="closeButton" onClick={() => props.setAboutWindowVisible(false)}>X</div>
