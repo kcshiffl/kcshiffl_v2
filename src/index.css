@@ -82,6 +82,7 @@ html {
   resize: both;
   width: 500px;
   height: 500px;
+  left: 15%;
 }
 
 .aboutWindow {
@@ -89,7 +90,6 @@ html {
   flex-direction: column;
   width:750px;
   height: auto;
-  left: 15%;
 }
 
 .windowHeader {

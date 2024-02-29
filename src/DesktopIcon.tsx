@@ -37,7 +37,18 @@ const DesktopIcon = (iconInfo: DesktopIconProps) => {
             break
     }
 
-
+    if (iconInfo.iconName == "Resume") {
+        return (
+            <a href={process.env.PUBLIC_URL + 'KShifflett_Resume_2024.pdf'} target={'_blank'} rel="noopener noreferrer" style={{'textDecoration': 'none'}}>
+                <div className="desktop-icon">
+                    <img className="desktop-icon-image" src={image} />
+                    <div className="desktop-icon-text-button">
+                        {iconInfo.iconName}
+                    </div>
+                </div>
+            </a>
+        )
+    }
 
     return (
         <div onClick={() => iconInfo.setVisible(!iconInfo.visible)} className="desktop-icon">
