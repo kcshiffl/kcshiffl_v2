@@ -64,17 +64,87 @@ html {
   height: 100px;
 }
 
-#aboutWindow {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  height: 500px;
+.window { 
+  scale: 0;
+  transition: scale .2s ease, transform .2s ease;
+}
+
+.window.visible {
+  scale: 1;
+}
+
+.windowBasic {
   border: 5px solid #000;
   background-color: white;
   filter: drop-shadow(-10px 10px black);
   border-radius: 15px;
   position: absolute;
   resize: both;
+  width: 500px;
+  height: 500px;
+}
+
+.aboutWindow {
+  display: flex;
+  flex-direction: column;
+  width:750px;
+  height: auto;
+  left: 15%;
+}
+
+.windowHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  border-bottom: 5px solid #000;
+  border-radius: 5px;
+  font-size: 40px;
+  font-style: normal;
+  z-index: -1;
+  cursor: default;
+}
+
+.windowContents {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  font-style: normal;
+}
+
+button {
+  border: 5px solid #000;
+  font-size: 25px;
+  background-color: #F88E98;
+  border-radius: 15px;
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+  width: auto;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.closeButton {
+  padding-right: 15px;
+}
+
+.closeButton:hover {
+  cursor: pointer;
+  animation: buttonHover 1s ease-in-out infinite alternate;
+}
+
+button:hover {
+  animation: buttonHover 1s ease-in-out infinite alternate;
+}
+
+@keyframes buttonHover { 
+  0% { transform: scale(.95); }
+  100% { transform: scale(1); }
 }
 
 @keyframes bounce { 

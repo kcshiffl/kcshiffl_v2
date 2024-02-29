@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { createElement } from 'react';
 import './index.css';
 import girl from './images/girl.png';
 import experience from './images/experience.png';
 import lightbulb from './images/lightbulb.png';
 import email from './images/email.png';
 import cv from './images/cv.png';
+import AboutWindow from './AboutWindow.tsx';
 
 var image
 
 interface DesktopIconProps {
-    iconName: String
+    iconName: String,
+    visible,
+    setVisible
 }
 
 const DesktopIcon = (iconInfo: DesktopIconProps) => {
@@ -34,8 +37,10 @@ const DesktopIcon = (iconInfo: DesktopIconProps) => {
             break
     }
 
+
+
     return (
-        <div className="desktop-icon">
+        <div onClick={() => iconInfo.setVisible(!iconInfo.visible)} className="desktop-icon">
             <img className="desktop-icon-image" src={image} />
             <div className="desktop-icon-text-button">
                 {iconInfo.iconName}

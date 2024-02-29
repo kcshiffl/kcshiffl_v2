@@ -1,56 +1,58 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import CSS from 'csstype';
+import { dragElement } from './App.tsx';
 
-dragElement(document.getElementById("aboutWindow"));
-
-function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    // if present, the header is where you move the DIV from:
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
-  }
-
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
-
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
-
-  function closeDragElement() {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
+interface AboutWindowProps {
+    setAboutWindowVisible
 }
 
-const AboutWindow = () => {
+const buttons: CSS.Properties = {
+    'display': 'flex',
+    'flexDirection': 'column',
+    'justifyContent': 'flex-start',
+    'margin': '5px',
+    'padding': '15px',
+    'textAlign': 'center',
+}
+
+const description: CSS.Properties = {
+    'border': '5px solid #000',
+    'padding': '15px',
+    'borderRadius': '15px',
+    'margin': '15px',
+    'fontSize': '25px',
+}
+
+
+const AboutWindow = (props: AboutWindowProps) => {
+    useEffect(() => {
+        dragElement(document.getElementById("aboutWindow"));
+    })
+
     return (
-        <div id="aboutWindow">
-            <div>
-                About Me
+        <div id="aboutWindow" className='windowBasic aboutWindow'>
+            <div className="windowHeader" style={{ backgroundColor: "#EBB436"}}>
+                <div style={{paddingLeft: '15px'}}>About Me</div>
+                <div style={{flexGrow: 1}} />
+                <div className="closeButton" onClick={() => props.setAboutWindowVisible(false)}>X</div>
             </div>
-            <div>
-                asdfasdfs
+            <div className="windowContents">
+                <div style={buttons}>
+                    <button>About</button>
+                    <br /><div  style={{fontSize: 45}}>Skills:</div>
+                    <div style={{flexGrow: 1}} />
+                    <button>Languages</button>
+                    <button>Environments</button>
+                    <button>Applications</button>
+                    <button>AWS Services</button>
+                </div>
+                <div style={description}>
+                    <div>Hi!</div><br />
+                    <div>I'm Kim, a software engineer based in the Seattle area.</div><br />
+                    <div>I love creating things - my pastimes are making silly doodles or working on random development projects.</div><br />
+                    <div>In my free time, I love playing video games (I'm a particularly huge Pokémon nut).</div><br />
+                    <div>My end goal is to work on meaningful projects with a motivated, creative team.</div>
+                </div>
             </div>
 
         </div>
