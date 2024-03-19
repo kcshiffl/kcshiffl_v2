@@ -7,6 +7,7 @@ import AboutWindow from './AboutWindow.tsx';
 import ExperienceWindow from './ExperienceWindow.tsx';
 import ProjectsWindow from './ProjectsWindow.tsx';
 import ContactWindow from './ContactWindow.tsx';
+import Footer from './Footer.tsx';
 
 const horizontalStyle: CSS.Properties = {
   'display': 'flex',
@@ -65,19 +66,9 @@ const App = () => {
   const [experienceWindowVisible, setExperienceWindowVisible] = useState(false);
   const [projectsWindowVisible, setProjectsWindowVisible] = useState(false);
   const [contactWindowVisible, setContactWindowVisible] = useState(false);
-
-  const [date, setDate] = useState(new Date().toLocaleString());
-
-  useEffect(() => {
-      let secTimer = setInterval( () => {
-        setDate(new Date().toLocaleString())
-      },1000)
-
-      return () => clearInterval(secTimer);
-  }, []);
   
   return (
-  <div>
+  <div style={{'minHeight': '100%', 'minWidth':'100%', 'position': 'absolute'}}>
     <div className={`window ${aboutWindowVisible && 'visible'}`}>
         { aboutWindowVisible && <AboutWindow setAboutWindowVisible={setAboutWindowVisible} /> }
     </div>
@@ -98,11 +89,7 @@ const App = () => {
       < DesktopIcon iconName="Contact" visible={contactWindowVisible} setVisible={setContactWindowVisible}/>
       < DesktopIcon iconName="Resume" visible={false} setVisible={false}/>
     </div>
-    <div id="taskbar" >
-      <div style={{'fontSize': '25px', 'paddingLeft': '15px'}}>kcshiffl@gmail.com</div>
-      <div style={{'flexGrow': '1'}}/>
-      <div style={{'fontSize': '20px', 'paddingRight': '15px'}}>{date}</div>
-    </div>
+    <Footer />
   </div>
   )
 }
