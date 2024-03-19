@@ -94,9 +94,18 @@ html {
 .aboutWindow {
   display: flex;
   flex-direction: column;
-  width:750px;
+  width: 750px;
   height: auto;
   text-align: center;
+}
+
+.experienceWindow {
+  display: flex;
+  flex-direction: column;
+  width: 750px;
+  height: auto;
+  text-align: center;
+  background-color: white;
 }
 
 .windowHeader {

@@ -12,14 +12,19 @@ const ExperienceWindow = (props: ExperienceWindowProps) => {
     })
 
     return (
-        <div id="experienceWindow" className='windowBasic'>
-            <div className="windowHeader" style={{ backgroundColor: "white"}}>
+        <div id="experienceWindow" className='windowBasic experienceWindow'>
+            <div className="windowHeader">
                 <div style={{paddingLeft: '15px'}}>Experience</div>
                 <div style={{flexGrow: 1}} />
                 <div className="closeButton" onClick={() => props.setExperienceWindowVisible(false)}>X</div>
             </div>
+            <div className="windowHeader">
+                <div style={{paddingLeft: '15px'}}>Niantic</div>
+                <div style={{flexGrow: 1}} />
+                <div className="closeButton" onClick={() => props.setExperienceWindowVisible(false)}>X</div>
+            </div>
             <div className="windowContents">
-
+                aweirhewohrh
             </div>
 
         </div>

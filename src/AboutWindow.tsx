@@ -6,6 +6,12 @@ interface AboutWindowProps {
     setAboutWindowVisible
 }
 
+const languages = ["Java", "C#", "SQL", "Python", "Javascript/Typescript", "HTML", "C", "C++"]
+const environments = ["Git", "Atom", "Visual Studio Code", "Android Studio", "React", "JUnit", "JGrasp", "Eclipse"]
+const applications = ["AWS", "Unity", "Outlook", "Excel", "Adobe Photoshop", "Adobe Illustrator", "Word", "Powerpoint"]
+const awsServices = ["AWS Amplify", "Lambda", "Cognito", "S3", "IAM", "Route 53"]
+
+
 const buttons: CSS.Properties = {
     'display': 'flex',
     'flexDirection': 'column',
@@ -25,7 +31,11 @@ const description: CSS.Properties = {
 }
 
 const list: CSS.Properties = {
+    'display': 'flex',
+    'flexDirection': 'column',
+    'justifyContent': 'center',
     'listStyleType': 'none',
+    'padding': '0px',
 }
 
 const listElement: CSS.Properties = {
@@ -34,11 +44,6 @@ const listElement: CSS.Properties = {
     'padding': '5px',
     'margin': '5px',
 }
-
-const languages = ["Java", "C#", "SQL", "Python", "Javascript/Typescript", "HTML", "C", "C++"]
-const environments = ["Git", "Atom", "Visual Studio Code", "Android Studio", "React", "JUnit", "JGrasp", "Eclipse"]
-const applications = ["AWS", "Unity", "Outlook", "Excel", "Adobe Photoshop", "Adobe Illustrator", "Word", "Powerpoint"]
-const awsServices = ["AWS Amplify", "Lambda", "Cognito", "S3", "IAM", "Route 53"]
 
 const listElements = (list) => list.map(element => {
     return <li style={listElement}>{element}</li>;
@@ -67,6 +72,7 @@ const AboutWindow = (props: AboutWindowProps) => {
     const LanguagesTab = () => {
         return (
             <div>
+                <div style={{'fontSize': '35px'}}>Languages:</div>
                 <ul style={list}>
                     {listElements(languages)}
                 </ul>
@@ -77,6 +83,7 @@ const AboutWindow = (props: AboutWindowProps) => {
     const EnvironmentsTab = () => {
         return (
             <div>
+                <div style={{'fontSize': '35px'}}>Environments:</div>
                 <ul style={list}>
                     {listElements(environments)}
                 </ul>
@@ -87,6 +94,7 @@ const AboutWindow = (props: AboutWindowProps) => {
     const ApplicationsTab = () => {
         return (
             <div>
+                <div style={{'fontSize': '35px'}}>Applications:</div>
                 <ul style={list}>
                     {listElements(applications)}
                 </ul>
@@ -97,6 +105,7 @@ const AboutWindow = (props: AboutWindowProps) => {
     const AWSServicesTab = () => {
         return (
             <div>
+                <div style={{'fontSize': '35px'}}>AWS Services:</div>
                 <ul style={list}>
                     {listElements(awsServices)}
                 </ul>
