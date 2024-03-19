@@ -24,7 +24,26 @@ const description: CSS.Properties = {
     'width': '100%',
 }
 
+const list: CSS.Properties = {
+    'listStyleType': 'none',
+}
+
+const listElement: CSS.Properties = {
+    'border': '5px solid #000',
+    'borderRadius': '15px',
+    'padding': '5px',
+    'margin': '5px',
+}
+
 const languages = ["Java", "C#", "SQL", "Python", "Javascript/Typescript", "HTML", "C", "C++"]
+const environments = ["Git", "Atom", "Visual Studio Code", "Android Studio", "React", "JUnit", "JGrasp", "Eclipse"]
+const applications = ["AWS", "Unity", "Outlook", "Excel", "Adobe Photoshop", "Adobe Illustrator", "Word", "Powerpoint"]
+const awsServices = ["AWS Amplify", "Lambda", "Cognito", "S3", "IAM", "Route 53"]
+
+const listElements = (list) => list.map(element => {
+    return <li style={listElement}>{element}</li>;
+})
+  
 
 const AboutWindow = (props: AboutWindowProps) => {
     const [currentTab, setCurrentTab] = useState("About");
@@ -48,7 +67,9 @@ const AboutWindow = (props: AboutWindowProps) => {
     const LanguagesTab = () => {
         return (
             <div>
-                Languages
+                <ul style={list}>
+                    {listElements(languages)}
+                </ul>
             </div>
         )
     }
@@ -56,7 +77,9 @@ const AboutWindow = (props: AboutWindowProps) => {
     const EnvironmentsTab = () => {
         return (
             <div>
-                Environments
+                <ul style={list}>
+                    {listElements(environments)}
+                </ul>
             </div>
         )
     }
@@ -64,7 +87,9 @@ const AboutWindow = (props: AboutWindowProps) => {
     const ApplicationsTab = () => {
         return (
             <div>
-                Applications
+                <ul style={list}>
+                    {listElements(applications)}
+                </ul>
             </div>
         )
     }
@@ -72,7 +97,9 @@ const AboutWindow = (props: AboutWindowProps) => {
     const AWSServicesTab = () => {
         return (
             <div>
-                AWS Services
+                <ul style={list}>
+                    {listElements(awsServices)}
+                </ul>
             </div>
         )
     }
